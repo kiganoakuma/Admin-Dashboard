@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -5,6 +6,7 @@
   --light-gray: rgb(224, 224, 224);
 }
 
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,26 +14,29 @@
   border: 0;
 }
 
+/* SVG Inversion */
 #svg-negate {
   filter: invert(100%);
 }
 
+/* Body Layout */
 body {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 4fr;
 }
 
+/* Header Styles */
 header {
   grid-column: 2 / -1;
   grid-row: 1 / 1;
   display: grid;
-  grid-column: 1fr;
-  grid-row: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   padding: 10px;
 }
 
-.top {
+header .top {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -71,13 +76,13 @@ header .profile-button {
   margin: 0 40px 0 0;
 }
 
-.bottom {
+header .bottom {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.bottom-left {
+header .bottom-left {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +99,7 @@ header .profile-button {
   font-size: 1.5em;
 }
 
-.buttons {
+header .buttons {
   display: flex;
   align-items: center;
   margin: 15px 30px;
@@ -111,6 +116,7 @@ button {
   height: auto;
 }
 
+/* Sidebar Styles */
 .sidebar {
   grid-column: 1 / 1;
   grid-row: 1 / -1;
@@ -120,7 +126,7 @@ button {
   align-items: center;
   gap: 10px;
   grid-template-columns: 50px 150px;
-  grid-template-rows: 40px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+  grid-template-rows: repeat(12, 30px);
 }
 
 .dash-label,
@@ -133,6 +139,7 @@ button {
   width: 45px;
   height: 45px;
 }
+
 .medium-icon {
   height: 25px;
   width: 25px;
@@ -144,20 +151,25 @@ button {
   color: var(--light-blue);
 }
 
+/* Main Content Styles */
 .content {
   grid-column: 2 / -1;
   grid-row: 2 / -1;
   background-color: var(--light-gray);
-  box-shadow: inset 0 10px 10px -10px rgb(66, 66, 66); /* Adjust the values to achieve the desired effect */
+  box-shadow: inset 0 10px 10px -10px rgb(66, 66, 66);
   padding: 30px;
+  gap: 20px;
   display: grid;
-  grid-area: 3fr 1fr / 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-.content-header {
+.container-header {
+  font-size: 1.8vw;
   font-weight: 650;
 }
 
+/* Container Main Styles */
 .container-main {
   display: flex;
   flex-direction: column;
@@ -170,7 +182,7 @@ button {
 .module-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: autofit repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -185,12 +197,12 @@ button {
 }
 
 .module-header {
-  font-size: 1em;
+  font-size: 1.5vw;
 }
 
 .module-text {
-  font-size: 1em;
-  color: lightgray;
+  font-size: 1.5vw;
+  color: rgb(147, 147, 147);
 }
 
 .module-buttons {
@@ -203,4 +215,85 @@ button {
   background-color: white;
   width: 40px;
   height: 40px;
+}
+
+/* Container Announcements Styles */
+.container-announcements {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+}
+
+.module-announcements {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.one,
+.two,
+.three {
+  margin: 0 10px;
+}
+
+.announcements-header {
+  font-size: 1.1vw;
+  font-weight: 600;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 33%;
+  padding: 10px;
+}
+
+.announcements-text {
+  font-size: 0.8vw;
+  color: rgb(142, 142, 142);
+}
+
+.horizontal-line {
+  border-top: inset 1px rgb(255, 255, 255);
+  width: 90%;
+  height: 1px;
+  margin: 5px 0;
+}
+
+/* Container Trending Styles */
+.container-trending {
+  grid-column: 2 / -1;
+  grid-row: 2 / 3;
+}
+
+.module-trending {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(1fr, 4);
+  justify-content: space-between;
+  gap: 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+#avatar-png {
+  width: 4vw;
+  height: 4vw;
+  margin-right: auto;
+}
+
+.username-trending {
+  font-size: 1.5vw;
+}
+
+.trending-text {
+  font-size: 1.3vw;
 }
